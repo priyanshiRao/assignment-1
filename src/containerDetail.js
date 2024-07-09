@@ -499,11 +499,7 @@ const ContainerDetail = ({ onApply }) => {
        
         <p>{appliedDetails.count} x {appliedDetails.size} | {appliedDetails.type} | {appliedDetails.commodity}</p>
         <button type="button">{dropdownOpen ? 'v' : '^'}</button>
-        {dropdownOpen && (
-          <div className="applied-details">
-            <p>{appliedDetails.count} x {appliedDetails.size} | {appliedDetails.type} | {appliedDetails.commodity}</p>
-          </div>
-        )}
+
       </div>
       {dropdownOpen && (
         <form onSubmit={handleSubmit} className="dropdown-form">
