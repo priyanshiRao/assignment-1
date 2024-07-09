@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
 import SelectAsync from './SelectAsync';
-import ContainerDetail from './containerDetail';
+import ContainerDetail from './ContainerDetail.js';
 import SearchButton from './searchButton.js';
 import { locations } from './data';
 import './App.css';
@@ -50,7 +50,7 @@ const handleContainerDetailsApply = (details) => {
       <ContainerDetail onApply={handleContainerDetailsApply} />
     
       
-      <SearchButton />
+      
     </div>
   );
 };

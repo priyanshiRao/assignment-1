@@ -94,6 +94,12 @@
 // export default ContainerDetail;
 
 
+
+
+
+
+
+
 // import React, { useState } from 'react';
 // import containerTypes from './path/to/container-types.json';
 // import containerSizes from './path/to/container-size.json';
@@ -131,6 +137,10 @@
 //       );
 // };
 // // export default containerDetail;
+
+
+
+
 
 // import React, { useState, useEffect  } from 'react';
 // import containerTypes from './container-types.json';
@@ -223,6 +233,109 @@
 // export default ContainerDetail;
 
 
+
+
+
+
+
+
+// // import React, { useState, useEffect } from 'react';
+// // import containerTypes from './container-types.json';
+// // import containerSizes from './container-size.json';
+// // import { COMMODITY_NAME_MAPPING } from './commodities.js';
+// // import './container.css';
+
+// // const ContainerDetail = ({ onApply }) => {
+// //   // Verify the structure of COMMODITY_NAME_MAPPING
+// //   console.log('COMMODITY_NAME_MAPPING:', COMMODITY_NAME_MAPPING);
+
+// //   const commodities = Object.keys(COMMODITY_NAME_MAPPING).map((key) => ({
+// //     label: COMMODITY_NAME_MAPPING[key].name,
+// //     value: key,
+// //   }));
+
+// //   const initialContainerDetails = {
+// //     size: containerSizes[0]?.label || 'Default Size',
+// //     type: containerTypes[0]?.label || 'Default Type',
+// //     commodity: commodities[0]?.label || 'Default Commodity', // Set default commodity
+// //     weight: '18 MT',
+// //     count: 1,
+// //   };
+
+// //   const [details, setDetails] = useState(initialContainerDetails);
+// //   const [appliedDetails, setAppliedDetails] = useState(initialContainerDetails);
+
+// //   useEffect(() => {
+// //     if (commodities.length === 0) {
+// //       console.warn('Commodities list is empty or key is incorrect.');
+// //     }
+// //   }, [commodities]);
+
+// //   const handleChange = (e) => {
+// //     const { name, value } = e.target;
+// //     setDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+// //   };
+
+// //   const handleSubmit = (e) => {
+// //     e.preventDefault();
+// //     setAppliedDetails(details);
+// //     onApply(details);
+// //   };
+
+// //   return (
+// //     <div className="container-detail">
+// //       <h2>Container Details</h2>
+// //       <form onSubmit={handleSubmit}>
+// //         <div className="form-group">
+// //           <label htmlFor="size">Size</label>
+// //           <select name="size" id="size" value={details.size} onChange={handleChange}>
+// //             {containerSizes.map((size) => (
+// //               <option key={size.value} value={size.label}>
+// //                 {size.label}
+// //               </option>
+// //             ))}
+// //           </select>
+// //         </div>
+// //         <div className="form-group">
+// //           <label htmlFor="type">Type</label>
+// //           <select name="type" id="type" value={details.type} onChange={handleChange}>
+// //             {containerTypes.map((type) => (
+// //               <option key={type.value} value={type.label}>
+// //                 {type.label}
+// //               </option>
+// //             ))}
+// //           </select>
+// //         </div>
+// //         <div className="form-group">
+// //           <label htmlFor="commodity">Commodity</label>
+// //           <select name="commodity" id="commodity" value={details.commodity} onChange={handleChange}>
+// //             {commodities.map((commodity) => (
+// //               <option key={commodity.value} value={commodity.label}>
+// //                 {commodity.label}
+// //               </option>
+// //             ))}
+// //           </select>
+// //         </div>
+// //         <div className="form-group">
+// //           <label htmlFor="weight">Weight</label>
+// //           <input type="text" id="weight" name="weight" value={details.weight} onChange={handleChange} />
+// //         </div>
+// //         <div className="form-group">
+// //           <label htmlFor="count">Count</label>
+// //           <input type="number" id="count" name="count" value={details.count} onChange={handleChange} />
+// //         </div>
+// //         <button type="submit" className="apply-button">Apply Changes</button>
+// //       </form>
+// //       <div className="applied-details-box">
+// //         <h3>Applied Container Details</h3>
+// //         <p>{`${appliedDetails.count}*${appliedDetails.size}|${appliedDetails.commodity}`}</p>
+// //       </div>
+// //     </div>
+// //   );
+// // };
+
+// // export default ContainerDetail;
+
 // import React, { useState, useEffect } from 'react';
 // import containerTypes from './container-types.json';
 // import containerSizes from './container-size.json';
@@ -269,6 +382,11 @@
 //   return (
 //     <div className="container-detail">
 //       <h2>Container Details</h2>
+//       <div className="current-details-box">
+//         <h3>Current Container Details</h3>
+//         <p>Size: {details.size}</p>
+//         <p>Type: {details.type}</p>
+//       </div>
 //       <form onSubmit={handleSubmit}>
 //         <div className="form-group">
 //           <label htmlFor="size">Size</label>
@@ -320,6 +438,13 @@
 
 // export default ContainerDetail;
 
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import containerTypes from './container-types.json';
 import containerSizes from './container-size.json';
@@ -327,7 +452,6 @@ import { COMMODITY_NAME_MAPPING } from './commodities.js';
 import './container.css';
 
 const ContainerDetail = ({ onApply }) => {
-  // Verify the structure of COMMODITY_NAME_MAPPING
   console.log('COMMODITY_NAME_MAPPING:', COMMODITY_NAME_MAPPING);
 
   const commodities = Object.keys(COMMODITY_NAME_MAPPING).map((key) => ({
@@ -338,13 +462,14 @@ const ContainerDetail = ({ onApply }) => {
   const initialContainerDetails = {
     size: containerSizes[0]?.label || 'Default Size',
     type: containerTypes[0]?.label || 'Default Type',
-    commodity: commodities[0]?.label || 'Default Commodity', // Set default commodity
+    commodity: commodities[0]?.label || 'Default Commodity',
     weight: '18 MT',
     count: 1,
   };
 
   const [details, setDetails] = useState(initialContainerDetails);
   const [appliedDetails, setAppliedDetails] = useState(initialContainerDetails);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     if (commodities.length === 0) {
@@ -361,61 +486,100 @@ const ContainerDetail = ({ onApply }) => {
     e.preventDefault();
     setAppliedDetails(details);
     onApply(details);
+    setDropdownOpen(false);
   };
 
   return (
-    <div className="container-detail">
+    
+
+
+     <div className="container-detail">
       <h2>Container Details</h2>
-      <div className="current-details-box">
-        <h3>Current Container Details</h3>
-        <p>Size: {details.size}</p>
-        <p>Type: {details.type}</p>
+      <div className="current-details-box" onClick={() => setDropdownOpen(!dropdownOpen)}>
+       
+        <p>{appliedDetails.count} x {appliedDetails.size} | {appliedDetails.type} | {appliedDetails.commodity}</p>
+        <button type="button">{dropdownOpen ? 'v' : '^'}</button>
+        {dropdownOpen && (
+          <div className="applied-details">
+            <p>{appliedDetails.count} x {appliedDetails.size} | {appliedDetails.type} | {appliedDetails.commodity}</p>
+          </div>
+        )}
       </div>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="size">Size</label>
-          <select name="size" id="size" value={details.size} onChange={handleChange}>
-            {containerSizes.map((size) => (
-              <option key={size.value} value={size.label}>
-                {size.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="type">Type</label>
-          <select name="type" id="type" value={details.type} onChange={handleChange}>
-            {containerTypes.map((type) => (
-              <option key={type.value} value={type.label}>
-                {type.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="commodity">Commodity</label>
-          <select name="commodity" id="commodity" value={details.commodity} onChange={handleChange}>
-            {commodities.map((commodity) => (
-              <option key={commodity.value} value={commodity.label}>
-                {commodity.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="weight">Weight</label>
-          <input type="text" id="weight" name="weight" value={details.weight} onChange={handleChange} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="count">Count</label>
-          <input type="number" id="count" name="count" value={details.count} onChange={handleChange} />
-        </div>
-        <button type="submit" className="apply-button">Apply Changes</button>
-      </form>
-      <div className="applied-details-box">
-        <h3>Applied Container Details</h3>
-        <p>{`${appliedDetails.count}*${appliedDetails.size}|${appliedDetails.commodity}`}</p>
-      </div>
+      {dropdownOpen && (
+        <form onSubmit={handleSubmit} className="dropdown-form">
+          <div className="form-group">
+            <label htmlFor="size">Size</label>
+            <div className="radio-group">
+              {containerSizes.map((size) => (
+                <label key={size.value}>
+                  <input
+                    type="radio"
+                    name="size"
+                    value={size.label}
+                    checked={details.size === size.label}
+                    onChange={handleChange}
+                  />
+                  {size.label}
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="type">Type</label>
+            <div className="radio-group">
+              {containerTypes.map((type) => (
+                <label key={type.value}>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={type.label}
+                    checked={details.type === type.label}
+                    onChange={handleChange}
+                  />
+                  {type.label}
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="commodity">Commodity</label>
+            <select
+              name="commodity"
+              id="commodity"
+              value={details.commodity}
+              onChange={handleChange}
+            >
+              {commodities.map((commodity) => (
+                <option key={commodity.value} value={commodity.label}>
+                  {commodity.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="weight">Total Weight per Ctr.</label>
+            <input
+              type="text"
+              id="weight"
+              name="weight"
+              value={details.weight}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="count">Count</label>
+            <input
+              type="number"
+              id="count"
+              name="count"
+              value={details.count}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="apply-button">Apply</button>
+        </form>
+      )}
+
     </div>
   );
 };
